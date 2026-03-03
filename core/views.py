@@ -3,6 +3,8 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from .serializers import MediaFileSerializer
+from .models import MediaFile
+from django.shortcuts import get_object_or_404
 
 # Create your views here.
 class MediaUploadView(APIView):
@@ -15,9 +17,9 @@ class MediaUploadView(APIView):
 
 class MediaDetailView(APIView):
     def get(self, request, pk):
-        media = MediaFile.objects.get(pk=pk)
+        media = get_object_or_404(MediaFile, pk=pk)
         file_key = media.file.name
-        url = generate_presigned_url(file_key)
+        url = media.generate_presigned_url()
 
         return Response({
             "id": media.id,

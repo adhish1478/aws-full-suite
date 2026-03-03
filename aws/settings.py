@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'aws.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'db-test-march',
+        'NAME': 'postgres',
         'USER': 'postgres',
         'PASSWORD': 'adhish1478',
         'HOST': 'db-test-march.cu76k642owg4.us-east-1.rds.amazonaws.com',

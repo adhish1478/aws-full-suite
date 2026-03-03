@@ -6,12 +6,12 @@ class MediaFile(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def generate_presigned_url(file_key):
-    s3 = boto3.client("s3", region_name="us-east-1")
-    return s3.generate_presigned_url(
-        "get_object",
-        Params={
-            "Bucket": "adhish-march-media-2026",
-            "Key": file_key,
-        },
-        ExpiresIn=300,
-    )
+        s3 = boto3.client("s3", region_name="us-east-1")
+        return s3.generate_presigned_url(
+            "get_object",
+            Params={
+                "Bucket": "adhish-march-media-2026",
+                "Key": file_key,
+            },
+            ExpiresIn=300,
+        )

@@ -12,7 +12,7 @@ class MediaFile(models.Model):
             "get_object",
             Params={
                 "Bucket": "adhish-march-media-2026",
-                "Key": file_key,
+                "Key": self.file.name,
             },
             ExpiresIn=300,
         )

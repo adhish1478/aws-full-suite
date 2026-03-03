@@ -18,7 +18,6 @@ class MediaUploadView(APIView):
 class MediaDetailView(APIView):
     def get(self, request, pk):
         media = get_object_or_404(MediaFile, pk=pk)
-        file_key = media.file.name
         url = media.generate_presigned_url()
 
         return Response({
